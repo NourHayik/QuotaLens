@@ -36,26 +36,35 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile=false
 
+      - name: Install Linux build dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && (sudo apt-get install -y libfuse2t64 || sudo apt-get install -y libfuse2)
+
       - name: Build web & CLI
         run: pnpm run build
 
       - name: Build Electron Desktop App (Linux)
         if: runner.os == 'Linux'
-        run: pnpm run desktop:linux
+        run: pnpm electron-builder --linux AppImage --linux deb --linux tar.gz
 
       - name: Build Electron Desktop App (Windows)
         if: runner.os == 'Windows'
-        run: pnpm run desktop:win
+        run: pnpm electron-builder --win zip --win portable
 
       - name: Build Electron Desktop App (macOS)
         if: runner.os == 'macOS'
-        run: pnpm run desktop:mac
+        run: pnpm electron-builder --mac zip
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: quotalens-${{ runner.os }}
-          path: release/*.*
+          path: |
+            release/*.AppImage
+            release/*.deb
+            release/*.tar.gz
+            release/*.exe
+            release/*.zip
 
       - name: Publish GitHub Release
         uses: softprops/action-gh-release@v2
@@ -67,4 +76,5 @@ jobs:
             release/*.tar.gz
             release/*.exe
             release/*.zip
+          fail_on_unmatched_files: false
           generate_release_notes: true
