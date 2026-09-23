@@ -5,15 +5,21 @@
   "directories": {
     "output": "release"
   },
-  "files": ["dist/**/*", "assets/**/*", "electron/**/*", "bin/**/*", "package.json"],
+  "files": [
+    "dist/**/*",
+    "assets/**/*",
+    "electron/**/*",
+    "bin/**/*",
+    "package.json"
+  ],
   "linux": {
     "target": [
       {
-        "target": "AppImage",
+        "target": "deb",
         "arch": ["x64"]
       },
       {
-        "target": "deb",
+        "target": "AppImage",
         "arch": ["x64"]
       },
       {
@@ -26,15 +32,25 @@
     "maintainer": "Nour Hayik <n-4i@hotmail.com>",
     "synopsis": "Local AI coding limits and quota dashboard"
   },
+  "deb": {
+    "afterInstall": "electron/deb-after-install.sh",
+    "afterRemove": "electron/deb-after-remove.sh"
+  },
   "win": {
     "target": [
       {
-        "target": "portable",
+        "target": "nsis",
         "arch": ["x64"]
       },
       {
         "target": "zip",
         "arch": ["x64"]
+      }
+    ],
+    "extraFiles": [
+      {
+        "from": "electron/bin/",
+        "to": "."
       }
     ],
     "icon": "assets/icon.ico"
@@ -45,6 +61,7 @@
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
     "shortcutName": "QuotaLens",
+    "artifactName": "${productName}-Setup-${version}.${ext}",
     "include": "electron/installer.nsh"
   },
   "mac": {

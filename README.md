@@ -37,14 +37,18 @@ npm install -g git+https://github.com/NourHayik/QuotaLens.git
 QuotaLens includes an Electron-powered native desktop application with dark glass UI, system tray integration, and auto-managed backend loopback server:
 
 ### 📦 Direct Desktop Downloads (GitHub Releases)
-Pre-built installers are available in [GitHub Releases](https://github.com/NourHayik/QuotaLens/releases):
-- **Linux**: `.AppImage` (portable), `.deb` (Ubuntu/Debian), `.tar.gz` (standalone)
-- **Windows 11 / 10**: `.exe` (standalone portable), `.zip`
-- **macOS**: `.zip` (with `QuotaLens.app` for Intel & Apple Silicon)
+Official installers and bundles are available at [GitHub Releases (v1.0.0)](https://github.com/NourHayik/QuotaLens/releases/tag/v1.0.0):
+
+| Platform | Recommended Installer | System Integration | Embedded CLI Support |
+| :--- | :--- | :--- | :--- |
+| **Windows 11 / 10** | [`QuotaLens-Setup-1.0.0.exe`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-Setup-1.0.0.exe) | ✅ Start Menu Apps & Desktop Shortcut | ✅ `quotalens` & `ai-limits` in Command Prompt / PowerShell |
+| **Linux (Ubuntu/Debian)** | [`QuotaLens-1.0.0-linux-amd64.deb`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-linux-amd64.deb) | ✅ "Show Applications" / App Grid (`.desktop`) | ✅ `/usr/bin/quotalens` & `/usr/bin/ai-limits` |
+| **Linux (Universal)** | [`QuotaLens-1.0.0-linux-x86_64.AppImage`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-linux-x86_64.AppImage) | Portable standalone single-file | ✅ Automatic shim in `~/.local/bin` |
+| **macOS (Universal)** | [`QuotaLens-1.0.0-mac-x64.zip`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-mac-x64.zip) | ✅ Drag to `/Applications` (Launchpad/Spotlight) | ✅ Automatic shim in `/usr/local/bin` & `~/.local/bin` |
 
 > **🚀 Instant Global CLI via Desktop App:**
-> When you install or launch the QuotaLens Desktop App on any platform, **the command-line tools (`quotalens` and `ai-limits`) are automatically configured in your system `PATH`**!
-> You **do NOT need to install Node.js, pnpm, or Python** separately — the desktop app bundles its own ultra-fast embedded runtime. Open any terminal and immediately run `quotalens status`!
+> When you install the QuotaLens Desktop App on any platform, **the command-line tools (`quotalens` and `ai-limits`) are automatically configured in your system `PATH`**!
+> You **do NOT need to install Node.js, pnpm, or Python** separately — the desktop app bundles its own ultra-fast embedded runtime. Open any terminal (Command Prompt, PowerShell, Terminal, Bash, Zsh) and immediately run `quotalens status`!
 
 ```bash
 # Run the desktop app locally:
