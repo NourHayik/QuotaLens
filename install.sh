@@ -61,18 +61,22 @@ else
   exit 1
 fi
 
-# Create global executable wrappers in ~/.local/bin
-cat << 'EOF' > "$BIN_DIR/quotalens"
+# Create global executable symlinks/wrappers in BIN_DIR
+ln -sf "$INSTALL_DIR/bin/quotalens.js" "$BIN_DIR/quotalens" 2>/dev/null || {
+  cat << EOF > "$BIN_DIR/quotalens"
 #!/usr/bin/env bash
-QUOTALENS_HOME="${QUOTALENS_DIR:-$HOME/.quotalens}"
-exec node "$QUOTALENS_HOME/bin/quotalens.js" "$@"
+QUOTALENS_HOME="\${QUOTALENS_DIR:-$INSTALL_DIR}"
+exec node "\$QUOTALENS_HOME/bin/quotalens.js" "\$@"
 EOF
+}
 
-cat << 'EOF' > "$BIN_DIR/ai-limits"
+ln -sf "$INSTALL_DIR/bin/ai-limits.js" "$BIN_DIR/ai-limits" 2>/dev/null || {
+  cat << EOF > "$BIN_DIR/ai-limits"
 #!/usr/bin/env bash
-QUOTALENS_HOME="${QUOTALENS_DIR:-$HOME/.quotalens}"
-exec node "$QUOTALENS_HOME/bin/ai-limits.js" "$@"
+QUOTALENS_HOME="\${QUOTALENS_DIR:-$INSTALL_DIR}"
+exec node "\$QUOTALENS_HOME/bin/ai-limits.js" "\$@"
 EOF
+}
 
 chmod +x "$BIN_DIR/quotalens" "$BIN_DIR/ai-limits"
 
