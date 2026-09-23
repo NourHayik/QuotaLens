@@ -1,0 +1,55 @@
+name: Build & Release Desktop App
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile=false
+
+      - name: Build web & CLI
+        run: pnpm run build
+
+      - name: Build Electron Desktop App (Linux)
+        if: runner.os == 'Linux'
+        run: pnpm electron-builder --linux AppImage
+
+      - name: Build Electron Desktop App (Windows)
+        if: runner.os == 'Windows'
+        run: pnpm electron-builder --win nsis zip
+
+      - name: Build Electron Desktop App (macOS)
+        if: runner.os == 'macOS'
+        run: pnpm electron-builder --mac dmg zip
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: quotalens-${{ runner.os }}
+          path: release/*.*

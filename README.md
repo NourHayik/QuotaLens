@@ -32,19 +32,25 @@ npm install -g git+https://github.com/NourHayik/QuotaLens.git
 
 ---
 
-## 🖥️ Linux Desktop App (Electron)
+## 🖥️ Cross-Platform Desktop App (Linux, Windows 11, macOS)
 
-QuotaLens includes an Electron-powered native desktop application for Linux with system tray support and a dark glass UI:
+QuotaLens includes an Electron-powered native desktop application with dark glass UI, system tray integration, and auto-managed backend loopback server:
 
 ```bash
-# Run the desktop app directly:
+# Run the desktop app locally:
 pnpm run desktop
 
-# Build unpacked standalone Linux application (release/linux-unpacked/quotalens):
-pnpm run desktop:build
+# Build for Linux (AppImage & unpacked dir):
+pnpm run desktop:linux
 
-# Build standalone portable Linux AppImage (release/QuotaLens-1.0.0-linux-x86_64.AppImage):
-pnpm run desktop:package
+# Build for Windows 11 / 10 (.exe portable & zip):
+pnpm run desktop:win
+
+# Build for macOS (Intel & Apple Silicon zip / app bundle):
+pnpm run desktop:mac
+
+# Build all platforms at once:
+pnpm run desktop:all
 ```
 
 ---
