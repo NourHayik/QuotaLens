@@ -12,9 +12,12 @@ permissions:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: false
 
     steps:
       - name: Check out repository
@@ -38,15 +41,15 @@ jobs:
 
       - name: Build Electron Desktop App (Linux)
         if: runner.os == 'Linux'
-        run: pnpm electron-builder --linux AppImage deb tar.gz
+        run: pnpm run desktop:linux
 
       - name: Build Electron Desktop App (Windows)
         if: runner.os == 'Windows'
-        run: pnpm electron-builder --win zip portable
+        run: pnpm run desktop:win
 
       - name: Build Electron Desktop App (macOS)
         if: runner.os == 'macOS'
-        run: pnpm electron-builder --mac dmg zip
+        run: pnpm run desktop:mac
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
@@ -64,5 +67,4 @@ jobs:
             release/*.tar.gz
             release/*.exe
             release/*.zip
-            release/*.dmg
           generate_release_notes: true
