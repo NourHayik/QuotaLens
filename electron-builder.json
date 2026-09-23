@@ -1,0 +1,25 @@
+{
+  "appId": "com.nourhayik.quotalens",
+  "productName": "QuotaLens",
+  "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+  "directories": {
+    "output": "release"
+  },
+  "files": ["dist/**/*", "assets/**/*", "electron/**/*", "package.json"],
+  "linux": {
+    "target": [
+      {
+        "target": "dir",
+        "arch": ["x64"]
+      },
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      }
+    ],
+    "category": "Development",
+    "icon": "assets/icon.png",
+    "maintainer": "Nour Hayik <n-4i@hotmail.com>",
+    "synopsis": "Local AI coding limits and quota dashboard"
+  }
+}

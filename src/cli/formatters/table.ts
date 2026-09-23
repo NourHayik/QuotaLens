@@ -92,7 +92,7 @@ export function formatStatusTable(
   const lines: string[] = [];
   const freshness = snapshot.fresh ? "FRESH" : "CACHED";
   lines.push("=".repeat(70));
-  lines.push(`AI Limits Dashboard — Status [${freshness}]`);
+  lines.push(`QuotaLens | AI Limits Dashboard — Status [${freshness}]`);
   lines.push(`Generated at: ${snapshot.generated_at}`);
   lines.push("-".repeat(70));
 

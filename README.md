@@ -1,6 +1,10 @@
-# QuotaLens (AI Limits Dashboard)
+<p align="center">
+  <img src="assets/icon.png" width="140" alt="QuotaLens Logo" style="border-radius: 24px;"/>
+</p>
 
-Local-only CLI and dashboard that aggregates AI coding subscription limits from already-authenticated provider CLIs (Codex, Kimi, Google Antigravity, Cursor, OpenCode). It operates entirely locally, does not store provider credentials, and does not call AI models to collect usage.
+# QuotaLens
+
+Local-only CLI, web dashboard, and desktop application that aggregates AI coding subscription limits from already-authenticated provider CLIs (Codex, Kimi, Google Antigravity, Cursor, OpenCode). It operates entirely locally, does not store provider credentials, and does not call AI models to collect usage.
 
 Works seamlessly across **macOS**, **Windows**, and **Linux**. Once installed, the CLI commands can be executed **globally from ANY directory** without navigating into the project folder.
 
@@ -28,7 +32,24 @@ npm install -g git+https://github.com/NourHayik/QuotaLens.git
 
 ---
 
-## 🚀 Usage (Run from Anywhere)
+## 🖥️ Linux Desktop App (Electron)
+
+QuotaLens includes an Electron-powered native desktop application for Linux with system tray support and a dark glass UI:
+
+```bash
+# Run the desktop app directly:
+pnpm run desktop
+
+# Build unpacked standalone Linux application (release/linux-unpacked/quotalens):
+pnpm run desktop:build
+
+# Build standalone portable Linux AppImage (release/QuotaLens-1.0.0-linux-x86_64.AppImage):
+pnpm run desktop:package
+```
+
+---
+
+## 🚀 CLI Usage (Run from Anywhere)
 
 Both `quotalens` and `ai-limits` are available globally as identical CLI commands:
 

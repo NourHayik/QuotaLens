@@ -52,7 +52,7 @@ export async function handleDashboardCommand(
 
     const banner = [
       "============================================================",
-      `  AI Limits Dashboard is running at:`,
+      `  QuotaLens: AI Limits Dashboard is running at:`,
       `  ${running.url}`,
       "  Bound strictly to loopback (127.0.0.1).",
       "  Press Ctrl+C to stop.",
@@ -70,7 +70,7 @@ export async function handleDashboardCommand(
       const onSignal = async () => {
         process.removeListener("SIGINT", onSignal);
         process.removeListener("SIGTERM", onSignal);
-        process.stdout.write("\nShutting down AI Limits Dashboard...\n");
+        process.stdout.write("\nShutting down AI Limits Dashboard (QuotaLens)...\n");
         if (!ctx.shutdownController.signal.aborted) {
           ctx.shutdownController.abort();
         }

@@ -7,6 +7,7 @@
     "node": ">=22"
   },
   "packageManager": "pnpm@10.15.1",
+  "main": "electron/main.js",
   "scripts": {
     "typecheck": "tsc --noEmit && tsc -p tsconfig.web.json --noEmit",
     "lint": "biome check .",
@@ -19,6 +20,9 @@
     "prepare": "npm run build || pnpm run build",
     "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm run audit",
     "dev:web": "vite",
+    "desktop": "pnpm run build && electron .",
+    "desktop:build": "pnpm run build && electron-builder --linux dir",
+    "desktop:package": "pnpm run build && electron-builder --linux AppImage",
     "dashboard": "node bin/quotalens.js dashboard",
     "ai-limits": "node bin/ai-limits.js",
     "quotalens": "node bin/quotalens.js"
@@ -45,6 +49,8 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
     "jsdom": "^30.0.1",
     "typescript": "^5.9.0",
     "vite": "^8.3.0",
@@ -55,6 +61,8 @@
     "src",
     "dist",
     "dist/web",
+    "assets",
+    "electron",
     "install.sh",
     "install.ps1"
   ]

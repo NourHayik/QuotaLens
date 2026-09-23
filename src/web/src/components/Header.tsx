@@ -29,11 +29,14 @@ export const Header: FC<HeaderProps> = ({
   return (
     <header className="app-header">
       <div className="brand-section">
-        <div className="brand-title">
-          <span>AI Limits Dashboard</span>
-          <span className="brand-badge">Loopback</span>
+        <img src="/logo.png" alt="QuotaLens Logo" className="brand-logo" />
+        <div className="brand-text-container">
+          <div className="brand-title">
+            <span>QuotaLens</span>
+            <span className="brand-badge">Loopback</span>
+          </div>
+          <span className="brand-subtitle">AI coding subscription limits & quota tracker</span>
         </div>
-        <span className="brand-subtitle">Local AI coding subscription limits & quota tracker</span>
       </div>
 
       <div className="header-controls">
