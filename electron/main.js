@@ -34,17 +34,39 @@ if (isCliInvocation(cliArgs)) {
   const iconPath = join(__dirname, "..", "assets", "icon.png");
 
   async function startBackend() {
+    // 1. If backend is already running on port 3000, attach to it!
+    try {
+      const resp = await fetch("http://127.0.0.1:3000/api/health", {
+        signal: AbortSignal.timeout(1000),
+      });
+      if (resp.ok) {
+        console.log("Attached to existing QuotaLens backend at http://127.0.0.1:3000");
+        return "http://127.0.0.1:3000";
+      }
+    } catch {
+      // Port 3000 is free, proceed to launch backend
+    }
+
     const { createCliContext } = await import(pathToFileURL(contextPath).href);
     const { startServer } = await import(pathToFileURL(serverPath).href);
 
     cliContext = createCliContext();
-    // Bind dynamically to an available loopback port
-    serverInstance = await startServer(cliContext, {
-      host: "127.0.0.1",
-      port: 0,
-    });
 
-    return serverInstance.url;
+    // 2. Try to bind to port 3000 first so http://ai-limit.local/ works out-of-the-box!
+    try {
+      serverInstance = await startServer(cliContext, {
+        host: "127.0.0.1",
+        port: 3000,
+      });
+      return serverInstance.url;
+    } catch (err) {
+      console.warn("Could not bind to port 3000, falling back to random available port:", err);
+      serverInstance = await startServer(cliContext, {
+        host: "127.0.0.1",
+        port: 0,
+      });
+      return serverInstance.url;
+    }
   }
 
   function createApplicationMenu(serverUrl) {
@@ -60,9 +82,15 @@ if (isCliInvocation(cliArgs)) {
             },
           },
           {
-            label: "Open in Browser",
+            label: "Open in Browser (Localhost)",
             click: () => {
               shell.openExternal(serverUrl);
+            },
+          },
+          {
+            label: "Open in Browser (ai-limit.local)",
+            click: () => {
+              shell.openExternal("http://ai-limit.local");
             },
           },
           { type: "separator" },
