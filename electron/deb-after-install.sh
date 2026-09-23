@@ -27,3 +27,11 @@ if [ -d /usr/local/bin ]; then
   ln -sf /usr/bin/quotalens /usr/local/bin/quotalens 2>/dev/null || true
   ln -sf /usr/bin/quotalens /usr/local/bin/ai-limits 2>/dev/null || true
 fi
+
+# Refresh desktop and icon databases
+if which gtk-update-icon-cache >/dev/null 2>&1; then
+  gtk-update-icon-cache -f -t /usr/share/icons/hicolor 2>/dev/null || true
+fi
+if which update-desktop-database >/dev/null 2>&1; then
+  update-desktop-database /usr/share/applications 2>/dev/null || true
+fi

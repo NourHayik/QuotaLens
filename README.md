@@ -39,12 +39,11 @@ QuotaLens includes an Electron-powered native desktop application with dark glas
 ### 📦 Direct Desktop Downloads (GitHub Releases)
 Official installers and bundles are available at [GitHub Releases (v1.0.0)](https://github.com/NourHayik/QuotaLens/releases/tag/v1.0.0):
 
-| Platform | Recommended Installer | System Integration | Embedded CLI Support |
+| Platform | Setup / Installer (App Section) | Portable (No Install) | Embedded CLI Support |
 | :--- | :--- | :--- | :--- |
-| **Windows 11 / 10** | [`QuotaLens-Setup-1.0.0.exe`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-Setup-1.0.0.exe) | ✅ Start Menu Apps & Desktop Shortcut | ✅ `quotalens` & `ai-limits` in Command Prompt / PowerShell |
-| **Linux (Ubuntu/Debian)** | [`QuotaLens-1.0.0-linux-amd64.deb`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-linux-amd64.deb) | ✅ "Show Applications" / App Grid (`.desktop`) | ✅ `/usr/bin/quotalens` & `/usr/bin/ai-limits` |
-| **Linux (Universal)** | [`QuotaLens-1.0.0-linux-x86_64.AppImage`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-linux-x86_64.AppImage) | Portable standalone single-file | ✅ Automatic shim in `~/.local/bin` |
-| **macOS (Universal)** | [`QuotaLens-1.0.0-mac-x64.zip`](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-mac-x64.zip) | ✅ Drag to `/Applications` (Launchpad/Spotlight) | ✅ Automatic shim in `/usr/local/bin` & `~/.local/bin` |
+| **Windows 11 / 10** | [**`QuotaLens-Setup-1.0.0.exe`**](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-Setup-1.0.0.exe) | [**`QuotaLens-Portable-1.0.0.exe`**](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-Portable-1.0.0.exe) | ✅ `quotalens` & `ai-limits` in Command Prompt / PowerShell |
+| **Linux (Ubuntu/Debian)** | [**`QuotaLens-Setup-1.0.0-linux-amd64.deb`**](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-Setup-1.0.0-linux-amd64.deb) | [**`QuotaLens-Portable-1.0.0-linux-x86_64.AppImage`**](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-Portable-1.0.0-linux-x86_64.AppImage) | ✅ `/usr/bin/quotalens` & `/usr/bin/ai-limits` |
+| **macOS (Universal)** | [**`QuotaLens-1.0.0-mac-x64.zip`**](https://github.com/NourHayik/QuotaLens/releases/download/v1.0.0/QuotaLens-1.0.0-mac-x64.zip) *(Drag to `/Applications`)* | Standalone `.app` bundle | ✅ `/usr/local/bin` & `~/.local/bin` |
 
 > **🚀 Instant Global CLI via Desktop App:**
 > When you install the QuotaLens Desktop App on any platform, **the command-line tools (`quotalens` and `ai-limits`) are automatically configured in your system `PATH`**!

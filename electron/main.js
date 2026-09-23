@@ -237,8 +237,19 @@ if (isCliInvocation(cliArgs)) {
 
     app.whenReady().then(async () => {
       // Automatically install CLI integration into PATH on launch
-      installCliIntegration({ silent: true }).catch(() => {});
-      await createWindow();
+      installCliIntegration({ silent: true }).catch((err) => {
+        console.error("CLI integration error:", err);
+      });
+      try {
+        await createWindow();
+      } catch (err) {
+        console.error("Failed to launch QuotaLens window:", err);
+        dialog.showErrorBox(
+          "QuotaLens Error",
+          `Unable to launch QuotaLens dashboard:\n\n${err?.message || err}`,
+        );
+        app.quit();
+      }
     });
 
     app.on("window-all-closed", async () => {

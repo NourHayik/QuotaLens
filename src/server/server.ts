@@ -198,7 +198,18 @@ export async function startServer(
   const { server, broadcaster } = await createFastifyServer(context, options);
 
   const address = await server.listen({ host, port });
-  const actualPort = Number.parseInt(new URL(address).port || String(port), 10);
+  let actualPort = Number.parseInt(String(port), 10);
+  try {
+    const rawAddr = server.server.address();
+    if (typeof rawAddr === "object" && rawAddr && "port" in rawAddr) {
+      actualPort = rawAddr.port;
+    } else if (typeof address === "string") {
+      const match = address.match(/:(\d+)$/);
+      if (match && match[1]) actualPort = Number.parseInt(match[1], 10);
+    }
+  } catch {
+    // Fallback to configured port
+  }
   const url = `http://${host}:${actualPort}`;
 
   return {

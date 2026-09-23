@@ -1,3 +1,4 @@
+import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { Command, CommanderError } from "commander";
 import { processRegistry } from "../infra/process/process-registry.js";
@@ -167,9 +168,18 @@ export async function runCli(argv: string[] = process.argv, context?: CliContext
 }
 
 // Direct execution entrypoint
-const isMain =
-  process.argv[1] &&
-  fileURLToPath(import.meta.url) === fileURLToPath(new URL(process.argv[1], "file:"));
+let isMain = false;
+if (process.argv[1]) {
+  try {
+    const entryPath = resolve(process.argv[1]).toLowerCase();
+    const modulePath = fileURLToPath(import.meta.url).toLowerCase();
+    isMain =
+      entryPath === modulePath ||
+      entryPath.replace(/\\/g, "/") === modulePath.replace(/\\/g, "/");
+  } catch {
+    isMain = false;
+  }
+}
 
 if (isMain) {
   installFatalProcessCleanup();

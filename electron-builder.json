@@ -28,18 +28,26 @@
       }
     ],
     "category": "Development",
-    "icon": "assets/icon.png",
+    "icon": "build/icons",
     "maintainer": "Nour Hayik <n-4i@hotmail.com>",
     "synopsis": "Local AI coding limits and quota dashboard"
   },
   "deb": {
+    "artifactName": "${productName}-Setup-${version}-linux-amd64.${ext}",
     "afterInstall": "electron/deb-after-install.sh",
     "afterRemove": "electron/deb-after-remove.sh"
+  },
+  "appImage": {
+    "artifactName": "${productName}-Portable-${version}-linux-x86_64.${ext}"
   },
   "win": {
     "target": [
       {
         "target": "nsis",
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
         "arch": ["x64"]
       },
       {
@@ -63,6 +71,9 @@
     "shortcutName": "QuotaLens",
     "artifactName": "${productName}-Setup-${version}.${ext}",
     "include": "electron/installer.nsh"
+  },
+  "portable": {
+    "artifactName": "${productName}-Portable-${version}.${ext}"
   },
   "mac": {
     "target": [
