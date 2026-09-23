@@ -38,11 +38,11 @@ jobs:
 
       - name: Build Electron Desktop App (Linux)
         if: runner.os == 'Linux'
-        run: pnpm electron-builder --linux AppImage
+        run: pnpm electron-builder --linux AppImage deb tar.gz
 
       - name: Build Electron Desktop App (Windows)
         if: runner.os == 'Windows'
-        run: pnpm electron-builder --win nsis zip
+        run: pnpm electron-builder --win zip portable
 
       - name: Build Electron Desktop App (macOS)
         if: runner.os == 'macOS'
@@ -53,3 +53,16 @@ jobs:
         with:
           name: quotalens-${{ runner.os }}
           path: release/*.*
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            release/*.AppImage
+            release/*.deb
+            release/*.tar.gz
+            release/*.exe
+            release/*.zip
+            release/*.dmg
+          generate_release_notes: true

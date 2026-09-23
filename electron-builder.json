@@ -5,15 +5,19 @@
   "directories": {
     "output": "release"
   },
-  "files": ["dist/**/*", "assets/**/*", "electron/**/*", "package.json"],
+  "files": ["dist/**/*", "assets/**/*", "electron/**/*", "bin/**/*", "package.json"],
   "linux": {
     "target": [
       {
-        "target": "dir",
+        "target": "AppImage",
         "arch": ["x64"]
       },
       {
-        "target": "AppImage",
+        "target": "deb",
+        "arch": ["x64"]
+      },
+      {
+        "target": "tar.gz",
         "arch": ["x64"]
       }
     ],
@@ -24,10 +28,6 @@
   },
   "win": {
     "target": [
-      {
-        "target": "nsis",
-        "arch": ["x64"]
-      },
       {
         "target": "portable",
         "arch": ["x64"]
@@ -44,14 +44,11 @@
     "allowToChangeInstallationDirectory": true,
     "createDesktopShortcut": true,
     "createStartMenuShortcut": true,
-    "shortcutName": "QuotaLens"
+    "shortcutName": "QuotaLens",
+    "include": "electron/installer.nsh"
   },
   "mac": {
     "target": [
-      {
-        "target": "dmg",
-        "arch": ["x64", "arm64"]
-      },
       {
         "target": "zip",
         "arch": ["x64", "arm64"]

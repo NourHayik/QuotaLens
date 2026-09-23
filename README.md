@@ -36,17 +36,27 @@ npm install -g git+https://github.com/NourHayik/QuotaLens.git
 
 QuotaLens includes an Electron-powered native desktop application with dark glass UI, system tray integration, and auto-managed backend loopback server:
 
+### 📦 Direct Desktop Downloads (GitHub Releases)
+Pre-built installers are available in [GitHub Releases](https://github.com/NourHayik/QuotaLens/releases):
+- **Linux**: `.AppImage` (portable), `.deb` (Ubuntu/Debian), `.tar.gz` (standalone)
+- **Windows 11 / 10**: `.exe` (standalone portable), `.zip`
+- **macOS**: `.zip` (with `QuotaLens.app` for Intel & Apple Silicon)
+
+> **🚀 Instant Global CLI via Desktop App:**
+> When you install or launch the QuotaLens Desktop App on any platform, **the command-line tools (`quotalens` and `ai-limits`) are automatically configured in your system `PATH`**!
+> You **do NOT need to install Node.js, pnpm, or Python** separately — the desktop app bundles its own ultra-fast embedded runtime. Open any terminal and immediately run `quotalens status`!
+
 ```bash
 # Run the desktop app locally:
 pnpm run desktop
 
-# Build for Linux (AppImage & unpacked dir):
+# Build for Linux (AppImage, deb, tar.gz):
 pnpm run desktop:linux
 
 # Build for Windows 11 / 10 (.exe portable & zip):
 pnpm run desktop:win
 
-# Build for macOS (Intel & Apple Silicon zip / app bundle):
+# Build for macOS (Intel & Apple Silicon zip):
 pnpm run desktop:mac
 
 # Build all platforms at once:
