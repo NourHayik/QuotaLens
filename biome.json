@@ -1,0 +1,124 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.13/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "includes": ["**", "!**/plan"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "style": {
+        "noRestrictedImports": {
+          "level": "off",
+          "options": {}
+        }
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["src/core/domain/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": [
+                      "**/core/application/**",
+                      "**/providers/**",
+                      "**/infra/**",
+                      "**/cli/**",
+                      "**/server/**",
+                      "**/web/**"
+                    ],
+                    "message": "core/domain must not depend on application, providers, infra, cli, server, or web."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/core/application/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/providers/**", "**/cli/**", "**/server/**", "**/web/**"],
+                    "message": "core/application must not depend on providers, cli, server, or web."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/infra/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": [
+                      "**/core/application/**",
+                      "**/providers/**",
+                      "**/cli/**",
+                      "**/server/**",
+                      "**/web/**"
+                    ],
+                    "message": "infra must not depend on application, providers, cli, server, or web."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["src/providers/**"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noRestrictedImports": {
+              "level": "error",
+              "options": {
+                "patterns": [
+                  {
+                    "group": ["**/cli/**", "**/server/**", "**/web/**"],
+                    "message": "providers must not depend on cli, server, or web."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

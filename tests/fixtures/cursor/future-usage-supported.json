@@ -1,0 +1,23 @@
+{
+  "plan": "Ultra",
+  "limits": [
+    {
+      "id": "fast_requests",
+      "name": "Fast Requests",
+      "category": "monthly",
+      "used": 180,
+      "limit": 500,
+      "unit": "requests",
+      "resetsAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "usage_based_credit",
+      "name": "Usage-based Spend",
+      "category": "credit",
+      "usedAmount": 12.5,
+      "limitAmount": 50.0,
+      "unit": "USD",
+      "resetsAt": "2026-10-01T00:00:00.000Z"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "authenticated",
+  "isAuthenticated": true,
+  "hasAccessToken": true,
+  "hasRefreshToken": true,
+  "userInfo": {
+    "email": "developer@example.com",
+    "userId": 1234567,
+    "firstName": "Developer",
+    "lastName": "User"
+  }
+}

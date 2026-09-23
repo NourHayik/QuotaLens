@@ -1,0 +1,61 @@
+{
+  "name": "quotalens",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Local-only dashboard and CLI for AI coding subscription limits",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.15.1",
+  "scripts": {
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.web.json --noEmit",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "vitest run",
+    "audit": "pnpm audit --audit-level=high",
+    "build:cli": "tsc -p tsconfig.build.json && node -e \"const fs = require('node:fs'); fs.mkdirSync('dist/infra/process', { recursive: true }); fs.copyFileSync('src/infra/process/pty-bridge.py', 'dist/infra/process/pty-bridge.py');\"",
+    "build:web": "vite build",
+    "build": "pnpm run build:cli && pnpm run build:web",
+    "prepare": "npm run build || pnpm run build",
+    "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm build && pnpm run audit",
+    "dev:web": "vite",
+    "dashboard": "node bin/quotalens.js dashboard",
+    "ai-limits": "node bin/ai-limits.js",
+    "quotalens": "node bin/quotalens.js"
+  },
+  "bin": {
+    "quotalens": "./bin/quotalens.js",
+    "ai-limits": "./bin/ai-limits.js"
+  },
+  "dependencies": {
+    "@fastify/cors": "^11.3.0",
+    "@fastify/static": "^10.1.3",
+    "commander": "^15.0.0",
+    "fastify": "^5.12.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsx": "^4.23.13",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^30.0.1",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.0",
+    "vitest": "^3.2.0"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist",
+    "dist/web",
+    "install.sh",
+    "install.ps1"
+  ]
+}

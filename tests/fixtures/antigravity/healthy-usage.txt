@@ -1,0 +1,32 @@
+▄▀▀▄        Antigravity CLI 1.2.3
+▀▀▀▀▀▀       nour4it@gmail.com
+▀▀▀▀▀▀▀▀      Gemini 3.8 Flash (High) (Google AI Pro)
+   ▄▀▀    ▀▀▄     ~/local_apps/ai-limits-dashboard
+  ▄▀▀      ▀▀▄
+
+└ Models & Quota
+
+  Account: nour4it@gmail.com
+
+GEMINI MODELS
+  Models within this group: Gemini Flash, Gemini Pro
+
+  Weekly Limit Remaining
+    [████████████████████████████████████████████████░░] 95.06%
+    95% remaining · Refreshes in 166h 41m
+
+  Five Hour Limit Remaining
+    [███████████████████████████████████░░░░░░░░░░░░░░░] 70.38%
+    70% remaining · Refreshes in 3h 41m
+
+
+CLAUDE AND GPT MODELS
+  Models within this group: Claude Opus, Claude Sonnet, GPT-OSS
+
+  Weekly Limit Remaining
+    [██████████████████████████████████████████████████] 100.00%
+    Quota available
+
+  Five Hour Limit Remaining
+    [██████████████████████████████████████████████████] 100.00%
+    Quota available

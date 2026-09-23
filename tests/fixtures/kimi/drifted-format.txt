@@ -1,0 +1,4 @@
+Unexpected layout from a future Kimi CLI version:
+Tokens consumed today: 12500
+Credits remaining: unknown
+Type /status to see more.

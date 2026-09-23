@@ -1,0 +1,7 @@
+┌  Credentials ~/.local/share/opencode/auth.json
+│
+●  OpenCode Go api
+│
+●  OpenCode Zen api
+│
+└  2 credentials

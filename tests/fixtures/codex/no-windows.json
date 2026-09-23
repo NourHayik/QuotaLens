@@ -1,0 +1,19 @@
+{
+  "ordinaryUsageAllowed": true,
+  "rateLimits": {
+    "limitId": "codex",
+    "limitName": null,
+    "normalModelSlug": null,
+    "primary": null,
+    "secondary": null,
+    "credits": null,
+    "individualLimit": null,
+    "spendControlReached": false,
+    "planType": "free",
+    "rateLimitReachedType": null
+  },
+  "rateLimitsByLimitId": null,
+  "rateLimitResetCredits": null,
+  "accountId": "no-windows-user",
+  "rateLimitUpsell": null
+}

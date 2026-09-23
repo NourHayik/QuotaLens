@@ -1,0 +1,6 @@
+{
+  "status": "unauthenticated",
+  "isAuthenticated": false,
+  "hasAccessToken": false,
+  "hasRefreshToken": false
+}

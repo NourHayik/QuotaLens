@@ -1,0 +1,5 @@
+Codex Status:
+Account: Pro (active)
+5-hour limit: 42% used (resets in 2h 18m)
+Weekly limit: 15% used (resets in 4d 12h)
+Rate limit reset credits: 2 available

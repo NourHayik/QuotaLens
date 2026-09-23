@@ -1,0 +1,81 @@
+{
+  "ordinaryUsageAllowed": true,
+  "rateLimits": {
+    "limitId": "codex",
+    "limitName": "Codex Default",
+    "normalModelSlug": "gpt-4o",
+    "primary": {
+      "usedPercent": 40,
+      "windowDurationMins": 300,
+      "resetsAt": 1789461659
+    },
+    "secondary": {
+      "usedPercent": 12,
+      "windowDurationMins": 10080,
+      "resetsAt": 1789895223
+    },
+    "credits": {
+      "hasCredits": false,
+      "unlimited": false,
+      "balance": null
+    },
+    "individualLimit": null,
+    "spendControlReached": false,
+    "planType": "team",
+    "rateLimitReachedType": null
+  },
+  "rateLimitsByLimitId": {
+    "codex": {
+      "limitId": "codex",
+      "limitName": "Codex Default",
+      "normalModelSlug": "gpt-4o",
+      "primary": {
+        "usedPercent": 40,
+        "windowDurationMins": 300,
+        "resetsAt": 1789461659
+      },
+      "secondary": {
+        "usedPercent": 12,
+        "windowDurationMins": 10080,
+        "resetsAt": 1789895223
+      },
+      "credits": null,
+      "individualLimit": null,
+      "spendControlReached": false,
+      "planType": "team",
+      "rateLimitReachedType": null
+    },
+    "spark": {
+      "limitId": "spark",
+      "limitName": "Codex Spark Quota",
+      "normalModelSlug": "gpt-4o-mini",
+      "primary": {
+        "usedPercent": 5,
+        "windowDurationMins": 300,
+        "resetsAt": 1789461659
+      },
+      "secondary": null,
+      "credits": null,
+      "individualLimit": null,
+      "spendControlReached": false,
+      "planType": "team",
+      "rateLimitReachedType": null
+    }
+  },
+  "rateLimitResetCredits": {
+    "availableCount": 3,
+    "credits": [
+      {
+        "id": "RateLimitResetCredit_1",
+        "resetType": "codexRateLimits",
+        "status": "available",
+        "grantedAt": 1787358539,
+        "expiresAt": 1789950539,
+        "title": "Full reset",
+        "description": "Thanks for using Codex! You've been granted one free rate limit reset."
+      }
+    ]
+  },
+  "accountId": "59a1f5f9-a95e-46cc-8527-555c601c9bae",
+  "rateLimitUpsell": null
+}

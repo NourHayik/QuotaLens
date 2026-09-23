@@ -1,0 +1,33 @@
+{
+  "provider": "opencode-go",
+  "plan": "Go",
+  "limits": [
+    {
+      "id": "5h",
+      "name": "5-hour rolling limit",
+      "category": "rolling_window",
+      "windowMinutes": 300,
+      "usedPercent": 25,
+      "remainingPercent": 75,
+      "resetsAt": "2026-09-15T15:00:00.000Z"
+    },
+    {
+      "id": "weekly",
+      "name": "Weekly limit",
+      "category": "weekly",
+      "windowMinutes": 10080,
+      "usedPercent": 40,
+      "remainingPercent": 60,
+      "resetsAt": "2026-09-22T00:00:00.000Z"
+    },
+    {
+      "id": "monthly",
+      "name": "Monthly limit",
+      "category": "monthly",
+      "windowMinutes": 43200,
+      "usedPercent": 15,
+      "remainingPercent": 85,
+      "resetsAt": "2026-10-01T00:00:00.000Z"
+    }
+  ]
+}
