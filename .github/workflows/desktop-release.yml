@@ -45,15 +45,15 @@ jobs:
 
       - name: Build Electron Desktop App (Linux)
         if: runner.os == 'Linux'
-        run: pnpm electron-builder --linux AppImage --linux deb --linux tar.gz
+        run: pnpm electron-builder --linux
 
       - name: Build Electron Desktop App (Windows)
         if: runner.os == 'Windows'
-        run: pnpm electron-builder --win zip --win portable
+        run: pnpm electron-builder --win
 
       - name: Build Electron Desktop App (macOS)
         if: runner.os == 'macOS'
-        run: pnpm electron-builder --mac zip
+        run: pnpm electron-builder --mac
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4

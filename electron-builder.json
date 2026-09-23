@@ -54,6 +54,7 @@
         "arch": ["x64", "arm64"]
       }
     ],
+    "identity": null,
     "icon": "assets/icon.icns",
     "category": "public.app-category.developer-tools"
   }

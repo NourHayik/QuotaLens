@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "description": "Local-only dashboard and CLI for AI coding subscription limits",
+  "author": "Nour Hayik <n-4i@hotmail.com>",
   "engines": {
     "node": ">=22"
   },
